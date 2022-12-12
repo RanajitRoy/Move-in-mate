@@ -60,4 +60,4 @@ app.get("/img/:id", async (req, res) => {
     }
   });
 
-app.listen(5001)
+app.listen(5001, "0.0.0.0")

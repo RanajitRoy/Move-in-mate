@@ -26,10 +26,10 @@ ourServer.addService(grpcObj.LogsSvc.service, {
 });
 
 ourServer.bindAsync(
-    "127.0.0.1:6001",
+    "0.0.0.0:6001",
     grpc.ServerCredentials.createInsecure(),
     (error, port) => {
-        console.log("Server running at http://127.0.0.1:6001");
+        console.log("Server running at http://0.0.0.0:6001");
         ourServer.start();
     }
 );

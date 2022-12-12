@@ -6,6 +6,6 @@ RUN npm install
 
 COPY server.js ./
 
-EXPOSE 4001
+EXPOSE 3002
 
 ENTRYPOINT [ "node", "server.js" ]

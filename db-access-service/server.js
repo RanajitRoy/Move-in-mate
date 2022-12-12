@@ -63,4 +63,4 @@ app.post('/messages', async (req, res) => {
     res.send("Success")
 })
 
-app.listen(4001)
+app.listen(4001, "0.0.0.0")
