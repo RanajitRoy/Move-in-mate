@@ -2,7 +2,8 @@ const express = require('express')
 const { MongoClient } = require("mongodb")
 const app = express()
 
-const uri = "mongodb://172.22.128.1:27017";
+const dbhost = process.env.DB_HOST || "172.22.128.1"
+const uri = `mongodb://${dbhost}:27017`;
 
 const client = new MongoClient(uri);
 const database = client.db('moveinmate');
