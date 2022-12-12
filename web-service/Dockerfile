@@ -6,12 +6,10 @@ COPY package*.json .
 
 RUN npm install
 
+RUN npm install -g serve
+
 COPY . .
 
 RUN npm run build
 
-FROM nginx:1.19
-
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-
-COPY --from=build /react-app/build /usr/share/nginx/html
+CMD ["serve", "-s", "build", "-l", "tcp://0.0.0.0:80"]
