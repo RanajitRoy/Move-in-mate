@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import {BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 
 import Header from "./header/header"
 import Login from "./login/login"
+import Register from "./register/register"
+import Home from "./home/home"
 
 const init_state = {
   loggedIn: false
 }
 
 function App() {
-  const [globalState, setGlobalState] = useState(init_state)
-
+  const [globalState, setGlobalState] = useState({
+    loggedIn: false,
+    sessionKey: ""
+  })
+  
   return (
     <div className="App">
       <Router>
         <Header loggedIn={globalState.loggedIn}/>
         <Routes>
-          <Route exact path='/' element={globalState.loggedIn ? <Navigate replace to='/home'/> : <Navigate replace to='/login'/>} />
-          <Route path='/login' element={globalState.loggedIn ? <Navigate replace to='/home'/> : <Login />} />
+          <Route exact path='/' element={globalState.loggedIn ? <Navigate to='/home'/> : <Navigate to='/login'/>} />
+          <Route path='/login' element={globalState.loggedIn ? <Navigate to='/home'/> : <Login stateSetter={setGlobalState} state={globalState}/>} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/home' element={globalState.loggedIn ? <Home /> : <Navigate to='/login'/>} />
         </Routes>
       </Router>
       {/* <header className="App-header">

@@ -35,6 +35,7 @@ npm install express
 ```
 
 ### Reconfigure after cloning
-Open terminal and go to each service directory directory.```
+Open terminal and go to each service directory directory.
+```
 npm install
 ```

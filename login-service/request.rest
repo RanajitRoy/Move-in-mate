@@ -1,0 +1,21 @@
+GET http://localhost:3001/users
+
+###
+
+POST http://localhost:3001/users/register
+Content-Type: application/json
+
+{
+    "email": "asda",
+    "pass": "asdq"
+}
+
+###
+
+POST http://localhost:3001/users/login
+Content-Type: application/json
+
+{
+    "name": "Rana",
+    "password": "passw"
+}
