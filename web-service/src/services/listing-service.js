@@ -1,7 +1,7 @@
 const {v4: uuidv4 } = require('uuid')
 
 const port = process.env.PORT_ENV || "5001"
-const host = process.env.HOST_ENV || "localhost"
+const host = window.location.host || "localhost"
 const url = "http://" + host + ":" + port
 
 async function getUsers(food, pet, smoke) {

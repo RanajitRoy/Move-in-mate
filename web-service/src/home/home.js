@@ -5,7 +5,7 @@ import { getUsers } from "../services/listing-service"
 
 
 const port = process.env.PORT_ENV || "5001"
-const host = process.env.HOST_ENV || "localhost"
+const host = window.location.host || "localhost"
 const url = "http://" + host + ":" + port + "/img/"
 
 

@@ -12,4 +12,23 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 cd Move-in-mate/db-access-service
 npm install
-export 
+export DB_HOST="localhost"
+export HOST_ENV="34.28.180.242"
+node server.js &
+cd ../listing-service
+npm install
+node server.js &
+cd ../login-service
+npm install
+node server.js &
+cd ../logs-service
+npm install
+node server.js &
+cd ../session-manager-service
+npm install
+node server.js &
+cd ../web-service
+npm install
+npm run build
+sudo npm install -g serve
+sudo serve -s build -l tcp://0.0.0.0:80 &
