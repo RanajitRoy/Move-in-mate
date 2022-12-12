@@ -1,9 +1,11 @@
+import { Buffer } from 'buffer'
 import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import './register.css'
 
 import { handleUserRegistration } from "../services/login-service"
 
+window.Buffer = Buffer;
 
 function Register(){
     const [loading, setLoading] = useState(false)
@@ -13,8 +15,10 @@ function Register(){
     const [food, setFood] = useState("veg")
     const [pet, setPet] = useState("pet")
     const [smoke, setSmoke] = useState("smoke")
+    const [file, setFile] = useState()
     const [registered, setRegistered] = useState(false)
 
+    console.log(file)
 
     const handleRegisterClick = async () => {
         setLoading(true);
@@ -25,8 +29,10 @@ function Register(){
                 pass: pass,
                 smoke: smoke,
                 pet: pet,
-                food: food
+                food: food,
+                pic: file
             })
+            console.log(file)
             setRegistered(true)
         } finally {
             setLoading(false);
@@ -57,6 +63,10 @@ function Register(){
         setSmoke(e.target.value)
     }
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0])
+    }
+
     if(registered) {
         return <Navigate to="/login"/>
     } else return (
@@ -77,6 +87,7 @@ function Register(){
                     <input type="radio" value="smoke" name="smoke" checked={smoke === "smoke"} /> Smoking allowed
                     <input type="radio" value="no-smoke" name="smoke" checked={smoke === "no-smoke"}/> Smoking not allowed
                 </div>
+                <input type="file" name="picture" onChange={handleFileChange} />
                 <input type="button" value="Register" disabled={loading} onClick={handleRegisterClick}/>
             </div>
         </div>

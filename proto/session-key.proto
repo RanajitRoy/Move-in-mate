@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+service SessionKeySvc {
+    rpc add(addMsg) returns (addReply) {}
+    rpc check(keyMsg) returns (keyReply) {}
+}
+
+
+message addMsg {
+    string email = 1;
+}
+
+message addReply {
+    string key = 1;
+}
+
+message keyMsg {
+    string email = 1;
+    string key = 2;
+}
+
+message keyReply {
+    bool isAuth = 1;
+}

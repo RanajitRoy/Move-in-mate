@@ -1,4 +1,25 @@
-GET http://localhost:3001/users
+POST http://localhost:5001/users
+Content-Type: application/json
+
+{
+    "smoke": "all",
+    "pet": "all",
+    "food": "all"
+}
+
+###
+
+POST http://localhost:4001/users
+Content-Type: application/json
+
+{
+"name": "asd",
+"email": "asd",
+"pass": "$2b$10$u0ucb3jQODKtQfsGzb.r/uw4DmKyKvLTB5y9lpQYaHjqSKjh3Kd.e",
+"smoke": "smoke",
+"pet": "pet",
+"food": "veg"
+}
 
 ###
 

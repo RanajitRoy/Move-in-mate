@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service LogsSvc {
+    rpc add(logMsg) returns (status) {}
+}
+
+
+message logMsg {
+    string msg=1;
+}
+
+message status {
+    string status=1;
+}
